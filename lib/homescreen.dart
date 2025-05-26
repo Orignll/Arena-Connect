@@ -1,47 +1,54 @@
+// Import library dan konfigurasi tema
 import 'package:flutter/material.dart';
-import 'package:arena_connect/config/theme.dart';
+import 'package:arena_connect/config/theme.dart'; // File berisi style/font/custom button
 
+// Deklarasi widget stateless HomeScreen
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key}); // Konstruktor dengan key opsional
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
+      backgroundColor: Colors.white, // Warna latar belakang utama
+      body: Stack( // Stack digunakan untuk menumpuk widget
         children: [
-          // Background image
+          // Widget untuk gambar latar belakang (background full screen)
           Positioned.fill(
             child: Image.asset(
-              'images/background-image.png',
-              fit: BoxFit.cover,
+              'images/background-image.png', // Path gambar latar belakang
+              fit: BoxFit.cover, // Menyesuaikan gambar agar menutupi seluruh layar
             ),
           ),
-          // Main content
+
+          // Konten utama di atas background
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween, // Atur jarak antar bagian (atas & bawah)
             children: [
+              // Bagian atas: logo dan teks selamat datang
               Column(
                 children: [
+                  // Baris untuk menempatkan logo di pojok kiri atas
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start, // Logo ke kiri
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 10, top: 40),
+                        padding: const EdgeInsets.only(left: 10, top: 40), // Jarak dari sisi kiri & atas
                         child: Image.asset(
-                          'images/arena-connect1.png',
+                          'images/arena-connect1.png', // Path logo
                           width: 80,
                           height: 80,
                         ),
                       ),
                     ],
                   ),
+                  // Teks "Welcome to"
                   Center(
                     child: Text(
                       "Welcome to",
-                      style: superFont0,
+                      style: superFont0, // Menggunakan style dari theme.dart
                     ),
                   ),
+                  // Teks "Arena Connect"
                   Center(
                     child: Text(
                       "Arena Connect",
@@ -50,39 +57,45 @@ class HomeScreen extends StatelessWidget {
                   )
                 ],
               ),
+
+              // Bagian bawah: tombol Masuk & Daftar
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 60),
+                  padding: const EdgeInsets.only(bottom: 60), // Jarak dari bawah layar
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     mainAxisSize: MainAxisSize.max,
                     children: [
+                      // Baris tombol masuk & daftar
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Tombol diberi jarak merata
                         children: [
+                          // Tombol Masuk
                           ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/login');
+                              Navigator.pushNamed(context, '/login'); // Navigasi ke halaman login
                             },
-                            style: masukButton,
+                            style: masukButton, // Style dari theme.dart
                             child: Text(
                               "M A S U K",
-                              style: masukButtonFont,
+                              style: masukButtonFont, // Font style dari theme.dart
                             ),
                           ),
+
+                          // Tombol Daftar
                           ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/register');
+                              Navigator.pushNamed(context, '/register'); // Navigasi ke halaman register
                             },
-                            style: daftarButton,
+                            style: daftarButton, // Style dari theme.dart
                             child: Text(
                               "D A F T A R",
-                              style: daftarButtonFont,
+                              style: daftarButtonFont, // Font style dari theme.dart
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 10), // Spacer vertikal kecil di bawah tombol
                     ],
                   ),
                 ),
@@ -94,4 +107,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-//
